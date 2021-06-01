@@ -6,3 +6,14 @@
 pip install django
 pip install django-summernote
 ```
+
+빌드 방법
+```
+python manage.py runserver
+```
+
+데이터베이스 오류시
+```
+python manage.py makemigrations
+python manage.py migrate
+```
