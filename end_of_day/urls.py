@@ -15,8 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
+from diaryapp.views import HomeView
 
 urlpatterns = [
+    path('', HomeView.as_view()),
     path('admin/', admin.site.urls),
-    path('account/', include('accountapp.urls')),
-]
+    path('accounts/', include('accountapp.urls')),
+    path('diary/', include('diaryapp.urls')),
+    path('summernote/', include('django_summernote.urls')),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

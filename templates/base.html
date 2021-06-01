@@ -1,0 +1,23 @@
+{% load static %}
+{% include 'head.html' %}
+<html lang="ko">
+<title>
+    {% block title %}
+    {% endblock %} | 하루끝
+</title>
+
+<body>
+
+    {% include 'header.html' %}
+
+    <div style='min-height: 700px;'>
+        {% block content %}
+    
+        {% endblock %}
+    </div>
+    
+    {% include 'footer.html' %}
+
+</body>
+
+</html>

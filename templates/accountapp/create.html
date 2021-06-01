@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="create_name" style='text-align: center;'>
+        <h4>#회원가입</h4>
+    </div>
+    <form action="{% url 'accountapp:create' %}" method='post' class="loding_next" style='max-width: 700px; margin: 0 auto;'>
+        {% csrf_token %}
+            <div class="agreement">
+                <ul>
+                    <li style='padding-bottom: 20px; text-align: center;'>{% include './snippets/agreement_using.html' %}</li>
+                    <li style='text-align: center;'>{% include './snippets/agreement_information.html' %}</li>
+                </ul>
+            </div>
+            <div id="user_name_create">
+                    <div style='display: flex; justify-content: center;'>
+                        <i class="fas fa-user" style='padding-right: 15px; padding-top: 8px; font-size: 20px;'></i>
+                        {{ form.username }}
+                    </div>
+                    <div style='text-align: center;'>
+                        {% for error in form.username.errors %}
+                            {{ error }}
+                        {% endfor %}
+                    </div>
+            </div>
+            <div id="user_email_confirm" style='padding-bottom: 20px; text-align: center;'>
+                <div style='display: flex; justify-content: center;'>
+                    <i class="far fa-envelope" style='padding-right: 15px; padding-top: 8px; font-size: 20px;'></i>
+                    {{ form.email }}
+                </div>
+            </div>
+            <div id="user_password_create" style='padding-bottom: 20px'>
+                <div style='display: flex; justify-content: center;'><i class="fas fa-key" style='padding-right: 15px; padding-top: 8px; font-size: 20px;'></i>{{ form.password1 }}</div>
+            </div>
+            <div id="user_password_again" style='padding-bottom: 20px'>
+                <div style='display: flex; justify-content: center;'><i class="fas fa-key" style='padding-right: 15px; padding-top: 8px; font-size: 20px;'></i>{{ form.password2 }}</div>
+                <div style="border: none; font-size: 14px; color: red; text-align: center;">
+                {% for error in form.password2.errors %}
+                    {{ error }}
+                {% endfor %}
+                </div>
+            </div>
+            <div style='text-align: center; margin-bottom: 20px;'>
+                <input type="submit" value='회원가입' class='btn btn-secondary col-2 rounded-pill'>
+            </div>
+    </form>
+
+{% endblock %}

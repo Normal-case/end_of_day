@@ -1,0 +1,22 @@
+{% load static %}
+    <nav class='navbar'>
+        <div class='navbar__bar'>
+            <a href=""><i class="fas fa-bars"></i></a>
+        </div>
+
+        <div class='navbar__name'>
+            <span><a href="{% url 'diaryapp:home' %}" style='text-decoration: none; color: #000069;'>하루끝</a></span>
+        </div>
+        
+        
+        <ul class='navbar__menu'>
+            {% if not user.is_authenticated %}
+            <li><a href="{% url 'accountapp:login' %}" style='text-decoration: none; color: black;'>로그인</a></li>
+            <li><a href="{% url 'accountapp:create' %}" style='text-decoration: none; color: black;'>회원가입</a></li>
+            {% else %}
+            <li><a href="{% url 'accountapp:logout' %}" style='text-decoration: none; color: black;'>로그아웃</a></li>
+            <li><a href="" style='text-decoration: none; color: black;'>마이페이지</a></li>
+            {% endif %}
+        </ul>
+        
+    </nav>

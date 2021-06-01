@@ -1,0 +1,216 @@
+ul {
+    list-style:none;
+}
+
+ol {
+    list-style:none;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 8px 12px;
+}
+
+.navbar__bar{
+    font-size: 24px;
+}
+
+.navbar__bar i{
+    color: #bebebe;
+}
+
+.navbar__name {
+    font-size: 30px;
+    font-family: 'Do Hyeon', sans-serif;
+    padding-left: 30px;
+}
+
+.navbar__menu {
+    display: flex;
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+.navbar__menu li{
+    padding: 8px 12px;
+}
+
+.navbar__menu li:hover{
+    background-color: #d49466;
+    border-radius: 4px;
+}
+
+.footer {
+    background-color: #bebebe;
+    text-align: center;
+}
+
+.footer_contents ul{
+    color: black;
+    padding: 8px 12px;
+    display: flex;
+}
+
+.footer_contents ul li{
+    margin: 0 auto;
+}
+
+
+#id_username{
+    width: 300px;
+    height: 35px;
+    border: none;
+    border-bottom: 1px solid #bebebe;
+    border-radius: 0;
+}
+
+#id_password{
+    width: 300px;
+    height: 35px;
+    border: none;
+    border-bottom: 1px solid #bebebe;
+    border-radius: 0;
+}
+
+#id_email{
+    width: 300px;
+    height: 35px;
+    border: none;
+    border-bottom: 1px solid #bebebe;
+    border-radius: 0;
+}
+
+#id_password1{
+    width: 300px;
+    height: 35px;
+    border: none;
+    border-bottom: 1px solid #bebebe;
+    border-radius: 0;
+}
+
+#id_password2{
+    width: 300px;
+    height: 35px;
+    border: none;
+    border-bottom: 1px solid #bebebe;
+    border-radius: 0;
+}
+
+input:focus {
+    outline:none;
+}
+
+ul.calendar_weekhead{
+    display:flex;
+    justify-content: space-between;
+    border-top: 2px solid #828282;
+    border-bottom: 1px solid #aaaaaa;
+    margin-bottom: 0;
+}
+
+ul.calendar_day{
+    display:flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #aaaaaa;
+    padding-left:0;
+    margin-bottom:0;
+}
+
+ul.calendar_day li{
+    width: 115px;
+    height: 70px;
+    text-align:left;
+}
+
+ul.calendar_day li:hover{
+    background-color: #cacaca;
+}
+
+#id_title {
+    width: 720px;
+    height: 35px;
+    border: 1px solid #cacaca;
+    border-radius: 5px;
+}
+
+#id_feeling {
+    width: 100px;
+    height: 39px;
+    border: 1px solid #cacaca;
+    border-radius: 5px;
+}
+
+.button_wrapper{
+    display:inline-block;zoom:1;display:inline;
+}
+
+.button_select1 {
+    background-color: #7DBCBE;
+    border: 1px solid #7DBCBE;
+    color:white;
+    width: 150px;
+    height: 40px;
+    border-radius: 30px;
+}
+
+.button_select2 {
+    background-color: #C73399;
+    border: 1px solid #C73399;
+    color:white;
+    width: 150px;
+    height: 40px;
+    border-radius: 30px;
+}
+
+.button_select3 {
+    background-color: #5050FF;
+    border: 1px solid #5050FF;
+    color:white;
+    width: 150px;
+    height: 40px;
+    border-radius: 30px;
+}
+
+.button_select4 {
+    background-color: #A06641;
+    border: 1px solid #A06641;
+    color:white;
+    width: 150px;
+    height: 40px;
+    border-radius: 30px;
+}
+
+.button_select5 {
+    background-color: #FF7A85;
+    border: 1px solid #FF7A85;
+    color:white;
+    width: 150px;
+    height: 40px;
+    border-radius: 30px;
+}
+
+.button_select6 {
+    background-color: #FF8200;
+    border: 1px solid #FF8200;
+    color:white;
+    width: 150px;
+    height: 40px;
+    border-radius: 30px;
+}
+
+.input_text_select {
+    width: 300px;
+    height: 40px;
+    border: none;
+    border-bottom: 1px solid #bebebe;
+    border-radius: 0;
+}

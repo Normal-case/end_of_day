@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+<div style='text-align: center;'>
+    <h3>Create My Story</h3>
+    {{ year }}년 {{ month }}월 {{ day }}일
+</div>
+
+<form action="{% url 'diaryapp:create_common' year=year month=month day=day %}" method='post' enctype="multipart/form-data">
+    {% csrf_token %}
+    <ul style='width: 720px; margin: 0 auto; padding: 10px 0;'>
+        <li>{{ form.title.label }}</li>
+        <li>{{ form.title }}</li>
+    </ul>
+    <div style='display: flex; justify-content: left; margin: 0 auto; width:720px;'>
+        <ul style='padding-left:0'>
+            <li>{{ form.feeling.label }}</li>
+            <li>{{ form.feeling }}</li>
+        </ul>
+    </div>
+    <ul style='width: 720px; margin: 0 auto; padding: 10px 0;'>
+        <li>{{ form.content.label }}</li>
+        <li id='summernote'>{{ form.content }}</li>
+    </ul>
+    
+    <div style='text-align: center; margin-bottom: 30px;'>
+        <input type="submit" class='btn btn-secondary col-2 rounded-pill' value='작성하기'>
+    </div>
+</form>
+
+{% endblock %}

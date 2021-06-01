@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div style='text-align: center; padding-top: 100px;'>
+    <div>
+        <h3 style="font-family: 'Noto Sans KR', sans-serif; color:#5a5a5a">Welcome back</h3>
+    </div>
+    <form action="" method='POST' class="login_form">
+        {% csrf_token %}
+        <div style='padding-top: 50px'>
+            <i class="fas fa-user" style='padding-right: 15px; padding-top: 8px; font-size: 20px;'></i>
+            <span class='user_login'>{{ form.username }}</span>
+        </div>
+        <div style='padding-top: 50px;'>
+            <i class="fas fa-key" style='padding-right: 15px; padding-top: 8px; font-size: 20px;'></i>
+            <span>{{ form.password }}</span>
+        </div>
+
+        <div id="login_btn_section" style='padding-top: 50px;'>
+            <ul id="login_btn">
+                <li><input type="submit" value="로그인" class="btn btn-secondary col-1 rounded-pill"></li>
+            </ul>
+        </div>
+    </form>
+</div>
+    
+
+
+
+{% endblock %}

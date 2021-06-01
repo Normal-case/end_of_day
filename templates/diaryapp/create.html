@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div style='text-align: center;'>
+    <p style='font-size: 20px; padding-top: 100px;'>어떤 방식으로 일기를 작성하시겠습니까?</p>
+    <div style='padding-top: 50px; display: flex; justify-content: center;'>
+        <div style='width: 300px;'>
+            <button class='btn btn-warning col-8 rounded-pill'><a href="{% url 'diaryapp:create_common' year=year month=month day=day %}" style='text-decoration: none; color:black;'>직접작성</a></button>
+        </div>
+        <div style='width: 300px;'>
+            <button class='btn btn-info col-8 rounded-pill'><a href="{% url 'diaryapp:select_feeling' year=year month=month day=day %}" style='text-decoration: none; color:black;'>선택작성</a></button>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

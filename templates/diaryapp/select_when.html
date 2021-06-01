@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div style='text-align: center;'>
+    <h3 style='padding-top: 50px;'>Create Diary Select(When?)</h3>
+
+    <form action="{% url 'diaryapp:select_when' pk=pk %}" method='post'>
+        {% csrf_token %}
+        <div style='padding-top: 70px;'>
+            <p><strong style='color: #1E90FF; font-size: 30px;'>언제</strong> 일이 있었는지 선택해주세요</p>
+        </div>
+        <div style='padding-top: 30px;'>
+            <input type="submit" value='오전에' name='before_noon' class='button_select1'>
+            <input type="submit" value='오후에' name='after_noon' class='button_select2'>
+        </div>
+        <div style='padding-top: 30px;'>
+            <input type="submit" value='아침에' name='morning' class='button_select3'>
+            <input type="submit" value='점심에' name='noon' class='button_select4'>
+        </div>
+        <div style='padding-top: 30px;'>
+            <input type="submit" value='저녁에' name='evening' class='button_select5'>
+            <input type="submit" value='밤에' name='night' class='button_select6'>
+        </div>
+        <div style='padding-top: 30px;'>
+            <input type="text" name='self_input' class='input_text_select'>
+            <input type="submit" value='기타' name='etc' class='btn btn-secondary col-1 rounded-pill'>
+        </div>
+    </form>
+</div>
+
+
+{% endblock %}
