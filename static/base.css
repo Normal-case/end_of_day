@@ -25,12 +25,12 @@ a{
 
 .navbar__bar i{
     color: #bebebe;
+    padding-right: 171px
 }
 
 .navbar__name {
     font-size: 30px;
     font-family: 'Do Hyeon', sans-serif;
-    padding-left: 30px;
 }
 
 .navbar__menu {
