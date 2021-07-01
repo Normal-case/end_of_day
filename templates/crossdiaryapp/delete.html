@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div style='text-align: center; padding-top: 100px;'>
+    <h4>Delete Diary</h4>
+    <form action="{% url 'crossdiaryapp:delete' pk=target_diary.pk %}" method='post', style='padding-top: 100px;' id='myform'>
+        {% csrf_token %}
+        <p>일기를 삭제할 경우 다시 복구가 불가능합니다.</p>
+        <p>정말로 삭제하시겠습니까?</p>
+        
+    </form>
+    <input type="submit" class='btn btn-danger rounded-pill col-2' value='삭제' form='myform'>
+    <a href="{% url 'crossdiaryapp:read' pk=target_diary.pk %}" style='text-decoration: none; color: white;' class='btn btn-secondary col-2 rounded-pill'>취소</a>
+</div>
+
+{% endblock %}

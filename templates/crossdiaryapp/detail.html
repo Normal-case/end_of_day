@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class='diary_content' style='margin: 20px auto; width: 700px'>
+    <div class='diary_head' style='text-align: center;'>
+        <h1><span style='color:blueviolet'>'{{ target_diary.cross.user_a }}' + '{{ target_diary.cross.user_b }}'</span>님의 다이어리</h1>
+    </div>
+    <div class='diary_date_and_feeling' style='display:flex;'>
+        {% if target_diary.feeling == 'joy' %}
+        <div style='font-size: 40px; height: auto;'>
+            <!-- joy -->
+            <i class="far fa-smile-beam" style='padding: 0'></i>
+        </div>
+        <div style='margin-left: 20px; width: 200px; font-size: 20px;'>
+            <span style='text-align: center; margin-top: 5px;'>{{ target_diary.date }}</span>
+        </div>
+        {% elif target_diary.feeling == 'sad' %}
+        <div style='font-size: 40px; height: auto;'>
+            <!-- sad -->
+            <i class="far fa-sad-tear" style='padding: 0'></i>
+        </div>
+        <div style='margin-left: 20px; width: 200px; font-size: 20px;'>
+            <span style='text-align: center; margin-top: 5px;'>{{ target_diary.date }}</span>
+        </div>
+        {% elif target_diary.feeling == 'angry' %}
+        <div style='font-size: 40px; height: auto;'>
+            <!-- angry -->
+            <i class="far fa-angry" style='padding: 0'></i>
+        </div>
+        <div style='margin-left: 20px; width: 200px; font-size: 20px;'>
+            <span style='text-align: center; margin-top: 5px;'>{{ target_diary.date }}</span>
+        </div>
+        {% elif target_diary.feeling == 'fear' %}
+        <div style='font-size: 40px; height: auto;'>
+            <!-- fear -->
+            <i class="far fa-grimace" style='padding: 0'></i>
+        </div>
+        <div style='margin-left: 20px; width: 200px; font-size: 20px;'>
+            <span style='text-align: center; margin-top: 5px;'>{{ target_diary.date }}</span>
+        </div>
+        {% endif %}
+        
+    </div>
+    <div class='diary_title'>
+        제목 : {{ target_diary.title }}
+    </div>
+    <div class='diary_content' style='border: 1px solid #b4b4b4; border-radius: 5px; margin: 20px auto; padding: 5px 5px;'>
+        {{ target_diary.content | safe }}
+    </div>
+
+    <div style="text-align: center;">
+        <a href="{% url 'crossdiaryapp:update' pk=target_diary.pk %}" style='text-decoration: none; color: white;' class='btn btn-secondary col-2 rounded-pill'>수정</a>
+        <a href="{% url 'crossdiaryapp:delete' pk=target_diary.pk %}" style='text-decoration: none; color: white;' class='btn btn-secondary col-2 rounded-pill'>삭제</a>
+    </div>
+</div>
+
+{% endblock %}

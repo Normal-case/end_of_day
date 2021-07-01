@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div id="main_con_big">
+    <div style='text-align: center;'>
+        <h5><b>프로필 생성</b></h5>
+    </div>
+
+    <form action="{% url 'profileapp:create' id=user.username %}" method='post' enctype="multipart/form-data">
+        {% csrf_token %}
+        {% for field in form %}
+        <ul style='width: 500px; margin: 0 auto; padding: 10px 0;'>
+            <li style='margin-bottom: 5px'>{{ field.label }}</li>
+            <li style="margin-bottom: 10px">{{ field }} {{ field.errors }}</li>
+        </ul>
+        
+        {% endfor %}
+        <div style='text-align: center; margin-top: 20px;'>
+            <input type="submit" class='btn btn-secondary col-2 rounded-pill' value='생성하기'>
+        </div>
+        
+    </form>
+</div>
+
+
+{% endblock %}

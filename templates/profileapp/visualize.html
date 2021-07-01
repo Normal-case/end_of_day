@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div style='text-align: center;'>
+    <div>
+        <h3 style='font-size: 48px; font-family: "Jua", sans-serif;'>'{{ user.profile.nickname}}'님 일기 분석</h3>
+    </div>
+    <div>
+        <span style='font-size: 24px; font-family: "Jua", sans-serif;'>지금까지 작성한 일기의 수는 '{{ amount }}'개 입니다.</span>
+    </div>
+    {% if not amount == 0 %}
+    <div style='display: flex; padding-top:100px; justify-content: center;'>
+        <div style='padding-top: 0;'>
+            <img src="{{ content }}" alt=""> <br>
+            <span style='font-size: 18px; font-family: "Jua", sans-serif;'>'{{ user.profile.nickname }}'님의 단어 빈도수</span>
+        </div>
+        <div id="container" style="width: 450px;">
+            <canvas id="pie-chart"></canvas>
+            <span style='font-size: 18px; font-family: "Jua", sans-serif;'>'{{ user.profile.nickname }}'님의 기분 차트</span>
+        </div>
+    </div>
+    {% else %}
+    <div style='padding-top: 100px;'>
+        <p style='font-size: 32px; font-family: "Jua", sans-serif;'>작성된 일기가 없습니다.</p>
+        <p style='font-size: 32px; font-family: "Jua", sans-serif;'>일기를 작성하고 오시면 재밌는 자료 보여드릴게요 :)</p>
+    </div>
+    {% endif %}
+    
+</div>
+
+
+<script>
+    const config = {
+        type: 'pie',
+        data: {
+            labels: [
+                '기쁨',
+                '슬픔',
+                '화남',
+                '두려움'
+            ],
+            datasets: [{
+                label: 'eee',
+                data: {{ data|safe }},
+                backgroundColor: [
+                    '#8EE1D2',
+                    '#288CFF',
+                    '#FF3CBB',
+                    '#FFC81E'
+                ],
+                hoverOffset: 4
+            }]
+        }
+    }
+
+    window.onload = function() {
+      var ctx = document.getElementById('pie-chart').getContext('2d');
+      window.myPie = new Chart(ctx, config);
+    };
+</script>
+{% endblock %}

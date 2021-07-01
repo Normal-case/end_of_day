@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div style='text-align: center;'>
+    <p style='font-size: 20px; padding-top: 100px;'>어떤 방식으로 일기를 작성하시겠습니까?</p>
+    <div style='padding-top: 50px; display: flex; justify-content: center;'>
+        <div style='width: 300px;'>
+            <a href="{% url 'crossdiaryapp:create_common' year=year month=month day=day user_a=user_a user_b=user_b %}" style='text-decoration: none; color:black;' class='btn btn-warning col-8 rounded-pill'>직접작성</a>
+        </div>
+        <div style='width: 300px;'>
+            <a href="{% url 'crossdiaryapp:select_feeling' year=year month=month day=day user_a=user_a user_b=user_b %}" style='text-decoration: none; color:black; margin:0;' class='btn btn-info col-8 rounded-pill'>선택작성</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

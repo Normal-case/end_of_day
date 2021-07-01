@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<script type="text/javascript">
+    window.history.forward();
+    function noBack() {
+        window.history.forward();
+    }
+</script>
+
+<div style='text-align: center;'>
+    <h3 style='padding-top: 50px;'>Create Diary Select(Where?)</h3>
+
+    <form action="{% url 'crossdiaryapp:select_where' pk=pk %}" method='post'>
+        {% csrf_token %}
+        <div style='padding-top: 70px;'>
+            <p><strong style='color: #1E90FF; font-size: 30px;'>어디서</strong> 일이 있었는지 선택해주세요</p>
+        </div>
+        <div style='padding-top: 30px;'>
+            <input type="submit" value='집에서' name='home' class='button_select1'>
+            <input type="submit" value='학교에서' name='school' class='button_select2'>
+        </div>
+        <div style='padding-top: 30px;'>
+            <input type="submit" value='직장에서' name='company' class='button_select3'>
+            <input type="submit" value='공원에서' name='park' class='button_select4'>
+        </div>
+        <div style='padding-top: 30px;'>
+            <input type="submit" value='식당에서' name='restaurant' class='button_select5'>
+            <input type="submit" value='카페에서' name='cafe' class='button_select6'>
+        </div>
+        <div style='padding-top: 30px;'>
+            <input type="text" name='self_input' class='input_text_select'>
+            <input type="submit" value='기타' name='etc' class='btn btn-secondary col-1 rounded-pill'>
+        </div>
+    </form>
+</div>
+
+
+{% endblock %}

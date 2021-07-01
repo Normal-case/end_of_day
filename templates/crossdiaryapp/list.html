@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div style='text-align: center;'>
+    <div style='padding-top:50px;'>
+        <h3 style='font-family: "Jua", sans-serif;'>'{{ user.profile.nickname }}' 교환일기 리스트</h3>
+    </div>
+    <div style='padding-top: 50px;'>
+        {% if cross %}
+        <div style='font-family: "Jua", sans-serif; width: 350px; margin:0 auto; padding-left: 0'>
+            {% for c in cross %}
+            <div style='padding: 10px 0; color:white; background-color: #FAB4B4; border: 1px solid #FAB4B4; border-radius: 10px; margin-bottom: 10px;'>
+                <a href="{% url 'crossdiaryapp:home' user_a=c.user_a user_b=c.user_b %}" style='text-decoration: none;'>
+                    <span>'{{ c.user_a }}' + '{{ c.user_b }}'의 교환일기</span><br>
+                    <span style='font-size:14px;'>Create : {{ c.create_at }}</span>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}
